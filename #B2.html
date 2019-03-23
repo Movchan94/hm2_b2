@@ -1,0 +1,35 @@
+<script>
+
+	var THRUE_answer = []  // пустой массив, в который будут подставлятся правильные ответы
+	var FALSE_answer = []  // массив в который будут подставлятся неправильные ответы пользователя
+	
+
+	for(var i = 0; i < 12; i++ ){
+		var number_1 = Math.floor(Math.random() * 90) + 10;
+		var number_2 = Math.floor(Math.random() * 90) + 10;
+		var right_result = number_1 * number_2;
+
+		var USER_answer = +prompt("Сколько будет: " + number_1 + "*" + number_2);
+
+			if (USER_answer == right_result){
+				THRUE_answer.push([`${number_1} * ${number_2} =`, USER_answer, right_result]);
+				
+			}
+			else {
+				FALSE_answer.push([`${number_1} * ${number_2} =`, USER_answer, right_result]);
+			}
+	}
+		console.log("Ваши правильные ответы:");
+			for(var i = 0; i < THRUE_answer.length; i++) {
+			console.log(THRUE_answer[i][0], "Ваш ответ:", THRUE_answer[i][1]);
+		}
+		
+
+		console.log("Ваши неправильные ответы:");
+			for(var i = 0; i < FALSE_answer.length; i++) {
+			console.log(FALSE_answer[i][0], "Ваш ответ:", FALSE_answer[i][1], "Правильный ответ:", FALSE_answer[i][2]);
+		}
+		console.log("Ваша оценка:", THRUE_answer.length);
+
+
+</script>
